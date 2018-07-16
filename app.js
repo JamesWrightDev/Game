@@ -39,3 +39,4 @@ const checkLetter = (a) => {
 const phraseArray = getRandomPhrase(phrases);
 addPhraseToDisplay(phraseArray);
 checkLetter();
+
