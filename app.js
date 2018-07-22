@@ -1,13 +1,14 @@
 const keyboard = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-let missed = 0;
-missed++;
+const missed = 0;
 
 const phrases = ['Iron Man', 'The Hulk', 'Black Widdow', 'Dr Strange', 'Thanos'];
 const getRandomPhrase = (a) => {
 	let randomPhrase = a[Math.floor(Math.random() * phrases.length)];
-	return randomPhrase.split("");
+	let randomPhraseLower = randomPhrase.toLowerCase();
+	return randomPhraseLower.split("");
 };
+
 const addPhraseToDisplay = (a) => {
 	var i = 0;
 	const letters = a;
@@ -24,19 +25,35 @@ const addPhraseToDisplay = (a) => {
 		ul.appendChild(li);
 	}
 }
-const checkLetter = (a) => {
-	let letter = document.querySelectorAll('.letter');
-	i = 0;
-	checkedLetter = a;
-	for (i = 0; i < letter.length; i++) {
-		if (a === letter[i]) {
-			letter[i].className += " show";
-			console.log('Yay');
-		}
-	}
+
+window.addEventListener("keypress", checkKey, true); 
+
+function checkKey(e) {
+	let checkedKey = e.key;
+	console.log(checkedKey);
+	checkLetter(checkedKey);
 }
+
+
+
+//Check Letter
+const checkLetter = (a) => {
+	i = 0;
+	let letterCheck = document.querySelectorAll('.letter');
+
+		for (i = 0; i < letterCheck.length; i++) {
+			if (a === letterCheck[i].innerHTML) {
+				letterCheck[i].className += " show";
+				console.log('Yay');
+			}
+			else{
+				
+			} 	
+		}
+}
+
+
 
 const phraseArray = getRandomPhrase(phrases);
 addPhraseToDisplay(phraseArray);
-checkLetter();
-
+console.log(phraseArray);
