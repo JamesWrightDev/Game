@@ -15,9 +15,23 @@ keyboard.onclick = function(event){
 	event.target.className += " chosen";
 	let letterFound = event.target.innerHTML;
 	checkLetter(letterFound);
-
+	console.log(checkLetter(letterFound));
+		if(checkLetter(letterFound)===null){missed++;}
+	checkWin();
+	
 }
 
+const checkWin = () => {
+		let letterCheck = document.querySelectorAll('.letter').length;
+		let letterCorrect = document.querySelectorAll('.show').length;
+		if(letterCheck == letterCorrect){
+			console.log("You Win!");
+		}
+		else if(missed >= 5){
+			console.log("you Lose");
+			
+		}
+	}
 
 const addPhraseToDisplay = (a) => {
 	var i = 0;
@@ -39,24 +53,20 @@ const addPhraseToDisplay = (a) => {
 
 //Check Letter
 const checkLetter = (a) => {
-	i = 0;
 	let letterCheck = document.querySelectorAll('.letter');
+			while (i = 0; i < letterCheck.length; i++) {
+				console.log(i);
+				if (a === letterCheck[i].innerHTML) {
+					letterCheck[i].className += " show";
+					var letterMatch = letterCheck[i];
+					return letterMatch;
+					}
+ 				}
 
-		for (i = 0; i < letterCheck.length; i++) {
-			if (a == letterCheck[i].innerHTML) {
-				letterCheck[i].className += " show";
-				console.log('Yay');
-			}
+ 	return null;
 
-			else{
-				console.log('nope')
-				return null;
-				
-			} 	
-		}
+
 }
-
-
 
 const phraseArray = getRandomPhrase(phrases);
 addPhraseToDisplay(phraseArray);
