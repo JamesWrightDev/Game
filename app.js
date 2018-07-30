@@ -54,15 +54,16 @@ const addPhraseToDisplay = (a) => {
 //Check Letter
 const checkLetter = (a) => {
 	let letterCheck = document.querySelectorAll('.letter');
-			while (i = 0; i < letterCheck.length; i++) {
+			for (i = 0; i < letterCheck.length; i++) {
 				console.log(i);
 				if (a === letterCheck[i].innerHTML) {
 					letterCheck[i].className += " show";
 					var letterMatch = letterCheck[i];
 					return letterMatch;
 					}
- 				}
 
+ 				} 				
+ 	
  	return null;
 
 
