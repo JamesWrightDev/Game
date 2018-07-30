@@ -56,17 +56,18 @@ const addPhraseToDisplay = (a) => {
 const checkLetter = (a) => {
     let letterCheck = document.querySelectorAll('.letter');
     let i = 0
+    let result = null;
     for (i = 0; i < letterCheck.length; i++) {
 
 	if (a === letterCheck[i].innerHTML) {
-			letterCheck[i].className += " show";
+			letterCheck[i].classList.add("show");
 			let letterMatch = letterCheck[i];
-			return letterMatch;
+			result = a;
 		}
 	
     }
-    return null;
-}
+    return result;
+};
 
 const phraseArray = getRandomPhrase(phrases);
 addPhraseToDisplay(phraseArray);
