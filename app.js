@@ -1,6 +1,6 @@
 const keyboard = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-const missed = 0;
+let missed = 0;
 
 const phrases = ['Iron Man', 'The Hulk', 'Black Widdow', 'Dr Strange', 'Thanos'];
 const getRandomPhrase = (a) => {
@@ -8,6 +8,14 @@ const getRandomPhrase = (a) => {
 	let randomPhraseLower = randomPhrase.toLowerCase();
 	return randomPhraseLower.split("");
 };
+
+keyboard.onclick = function(event){
+	let key = event.target.innerHTML;
+	console.log(key);
+	checkLetter(key);
+	return key;
+}
+
 
 const addPhraseToDisplay = (a) => {
 	var i = 0;
@@ -47,6 +55,9 @@ const checkLetter = (a) => {
 				console.log('Yay');
 			}
 			else{
+				missed++;
+				console.log(missed);
+				break;
 				
 			} 	
 		}
