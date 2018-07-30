@@ -64,7 +64,6 @@ const checkLetter = (a) => {
 			let letterMatch = letterCheck[i];
 			result = a;
 		}
-	
     }
     return result;
 };
