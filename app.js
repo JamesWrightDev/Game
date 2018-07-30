@@ -3,17 +3,19 @@ const phrase = document.getElementById('phrase');
 let missed = 0;
 
 const phrases = ['Iron Man', 'The Hulk', 'Black Widdow', 'Dr Strange', 'Thanos'];
+
 const getRandomPhrase = (a) => {
 	let randomPhrase = a[Math.floor(Math.random() * phrases.length)];
 	let randomPhraseLower = randomPhrase.toLowerCase();
 	return randomPhraseLower.split("");
 };
 
+
 keyboard.onclick = function(event){
-	let key = event.target.innerHTML;
-	console.log(key);
-	checkLetter(key);
-	return key;
+	event.target.className += " chosen";
+	let letterFound = event.target.innerHTML;
+	checkLetter(letterFound);
+
 }
 
 
@@ -34,15 +36,6 @@ const addPhraseToDisplay = (a) => {
 	}
 }
 
-window.addEventListener("keypress", checkKey, true); 
-
-function checkKey(e) {
-	let checkedKey = e.key;
-	console.log(checkedKey);
-	checkLetter(checkedKey);
-}
-
-
 
 //Check Letter
 const checkLetter = (a) => {
@@ -50,14 +43,14 @@ const checkLetter = (a) => {
 	let letterCheck = document.querySelectorAll('.letter');
 
 		for (i = 0; i < letterCheck.length; i++) {
-			if (a === letterCheck[i].innerHTML) {
+			if (a == letterCheck[i].innerHTML) {
 				letterCheck[i].className += " show";
 				console.log('Yay');
 			}
+
 			else{
-				missed++;
-				console.log(missed);
-				break;
+				console.log('nope')
+				return null;
 				
 			} 	
 		}
