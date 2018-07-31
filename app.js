@@ -6,7 +6,7 @@ let missed = 0;
 
 const phrases = ['Iron Man', 'The Hulk', 'Black Widdow', 'Dr Strange', 'Thanos'];
 
-//Randomly selects a random phrase. 
+//Randomly selects a phrase. 
 const getRandomPhrase = (a) => {
     let randomPhrase = a[Math.floor(Math.random() * phrases.length)];
     let randomPhraseLower = randomPhrase.toLowerCase();
@@ -100,7 +100,7 @@ const resetGame = (e) => {
 	//Reset keyboard to enabled. 
 	for (i = 0; i < buttons.length; i++) {	
 		buttons[i].disabled = false;
-		buttons[i].className -= 'chosen';
+		buttons[i].classList.remove('chosen')
 		const scoreBoard = document.querySelectorAll('.tries');
 		}
 	//Reset the Lives
