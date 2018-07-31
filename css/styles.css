@@ -98,10 +98,24 @@ button {
 .space {
   width: 15px;
 }
-
+/*Credit for the Fade in technique 
+https://codepen.io/Drew69/pen/LRPgmL */
 .show {
   color: #000;
   background-color: #76CE82;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+    width: 0;
+  }
+  100%{
+    opacity: 1;
+    width: 100;
+
+  }
 }
 
 /* Keyboard */

@@ -81,10 +81,10 @@ const checkWin = () => {
     const letterCorrect = document.querySelectorAll('.show').length;
     if (letterCheck == letterCorrect) {
         console.log("You Win!");
-        resetGame('win');
+        resetGame('win :)');
     } else if (missed >= 5) {
         console.log("you Lose");
-        resetGame('lose');
+        resetGame('lose :(');
     }
 }
 const buttons = document.querySelectorAll('button')
