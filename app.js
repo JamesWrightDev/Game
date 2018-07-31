@@ -22,7 +22,6 @@ overLay.onclick = function(event){
     
 //Click event for on screen keyboard - result is passed to checkLetter. 
 keyBoard.onclick = function(event) {
-
     event.target.classList.add("chosen");
     event.target.disabled = 'true';
     let letterFound = event.target.innerHTML;
