@@ -22,15 +22,18 @@ overLay.onclick = function(event){
     
 //Click event for on screen keyboard - result is passed to checkLetter. 
 keyBoard.onclick = function(event) {
-    event.target.classList.add("chosen");
-    event.target.disabled = 'true';
-    let letterFound = event.target.innerHTML;
-    checkLetter(letterFound);
-    if (checkLetter(letterFound) === null) {
-        missed++;
-        removeHeart(missed - 1);
-    }
-    checkWin();
+    if(event.target.tagName == 'BUTTON'){
+            event.target.classList.add("chosen");
+            event.target.disabled = 'true';
+            let letterFound = event.target.innerHTML;
+            checkLetter(letterFound);
+            if (checkLetter(letterFound) === null) {
+                missed++;
+                removeHeart(missed - 1);
+            }
+            checkWin();
+            console.log(event);
+        }
 }
 
 //Creates a list and inserts them into the DOM. 
@@ -86,6 +89,7 @@ const checkWin = () => {
         resetGame('lose :(');
     }
 }
+
 const buttons = document.querySelectorAll('button')
 // Resets game screen and keyboard
 const resetGame = (e) => {
